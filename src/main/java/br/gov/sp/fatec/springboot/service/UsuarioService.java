@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
@@ -19,29 +20,28 @@ public class UsuarioService {
 
     public List<Usuario> buscarTodosUsuarios() {
         List<Usuario> usuarios = usuarioRepo.findAll();
-
         return usuarios;
     }
 
     public Usuario cadastraUsuario(Usuario usuario) {
-        if (usuario == null ||
+        if(usuario == null ||
                 usuario.getNome() == null ||
                 usuario.getNome().isBlank() ||
+                usuario.getSenha() == null ||
                 usuario.getSenha().isBlank()) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Dados invalidos");
-
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Dados inválidos!");
         }
         return usuarioRepo.save(usuario);
     }
 
     public Usuario buscarUsuarioPorId(Long id) {
         Optional<Usuario> usuarioOp = usuarioRepo.findById(id);
-
-        if (usuarioOp.isEmpty()) {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Usuario não encontrado");
+        if(usuarioOp.isEmpty()) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Usuário não encontrado!");
         }
-
         return usuarioOp.get();
-
     }
+
+
+    
 }
