@@ -1,6 +1,8 @@
 package br.gov.sp.fatec.springboot.controller;
 
 import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,6 +20,7 @@ import br.gov.sp.fatec.springboot.service.UsuarioService;
 @RequestMapping(value = "/usuario")
 @CrossOrigin
 public class UsuarioController {
+    @Autowired
     private  UsuarioService service;
 
     @PostMapping
