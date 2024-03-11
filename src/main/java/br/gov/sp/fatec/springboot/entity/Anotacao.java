@@ -2,10 +2,9 @@ package br.gov.sp.fatec.springboot.entity;
 
 import java.time.LocalDateTime;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -27,19 +26,10 @@ public class Anotacao {
 
     @Column(name = "ant_data_hora")
     private LocalDateTime dataHora;
-    
-    @ManyToOne
+
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "ant_usr_id")
-    //@JsonIgnore
     private Usuario usuario;
-
-    public Anotacao(String texto, LocalDateTime dataHora, Usuario usuario) {
-        this.texto = texto;
-        this.dataHora = dataHora;
-        this.usuario = usuario;
-    }
-
-    public Anotacao() {}
 
     public Long getId() {
         return id;
