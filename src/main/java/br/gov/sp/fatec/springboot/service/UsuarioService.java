@@ -62,5 +62,5 @@ public class UsuarioService {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Autorização não encontrada!");
         }
         return autorizacaoOp.get();
-    }  
+    }    
 }

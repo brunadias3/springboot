@@ -17,7 +17,7 @@ import br.gov.sp.fatec.springboot.service.AnotacaoService;
 @RequestMapping(value = "/anotacao")
 @CrossOrigin
 public class AnotacaoController {
-
+    
     @Autowired
     private AnotacaoService service;
 

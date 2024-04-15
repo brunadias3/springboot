@@ -4,6 +4,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import br.gov.sp.fatec.springboot.entity.Anotacao;
 
-public interface AnotacaoRepository extends JpaRepository<Anotacao, Long> {
+public interface AnotacaoRepository extends JpaRepository<Anotacao, Long>{
     
 }

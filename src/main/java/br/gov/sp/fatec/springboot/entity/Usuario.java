@@ -30,7 +30,7 @@ public class Usuario {
 
     @Column(name = "usr_senha")
     private String senha;
-
+    
     @JsonIgnore
     @OneToMany(mappedBy = "usuario")
     private Set<Anotacao> anotacoes = new HashSet<Anotacao>();
@@ -40,24 +40,7 @@ public class Usuario {
         joinColumns = { @JoinColumn(name = "usr_id")},
         inverseJoinColumns = { @JoinColumn(name = "aut_id") }
         )
-
     private Set<Autorizacao> autorizacoes = new HashSet<Autorizacao>();
-
-    public Set<Anotacao> getAnotacoes() {
-        return anotacoes;
-    }
-
-    public void setAnotacoes(Set<Anotacao> anotacoes) {
-        this.anotacoes = anotacoes;
-    }
-
-    public Set<Autorizacao> getAutorizacoes() {
-        return autorizacoes;
-    }
-
-    public void setAutorizacoes(Set<Autorizacao> autorizacoes) {
-        this.autorizacoes = autorizacoes;
-    }
 
     public Long getId() {
         return id;
@@ -83,4 +66,20 @@ public class Usuario {
         this.senha = senha;
     }
 
+    public Set<Anotacao> getAnotacoes() {
+        return anotacoes;
+    }
+
+    public void setAnotacoes(Set<Anotacao> anotacoes) {
+        this.anotacoes = anotacoes;
+    }
+
+    public Set<Autorizacao> getAutorizacoes() {
+        return autorizacoes;
+    }
+
+    public void setAutorizacoes(Set<Autorizacao> autorizacoes) {
+        this.autorizacoes = autorizacoes;
+    }
+    
 }
